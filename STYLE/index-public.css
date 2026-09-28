@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.logo{
+    height: 45px;
+    width: 45px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    padding: 10px 20px;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li a{
+    color: #333;
+}
+
+.nav-links li a:hover{
+    color: #3333339a;
+    transition: 0.3s;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login {
+    padding: 7px 14px;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    background-color: #3d971e;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sign-up {
+    padding: 7px 14px;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    background-color: #f6f8fa;
+    color: #24292f;
+    font-size: 14px;
+    cursor: pointer;
+}
