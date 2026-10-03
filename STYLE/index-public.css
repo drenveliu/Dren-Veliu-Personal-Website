@@ -13,6 +13,8 @@ body{
     height: 45px;
     width: 45px;
 }
+
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -60,4 +62,245 @@ body{
     color: #24292f;
     font-size: 14px;
     cursor: pointer;
+}
+
+.language-logos{
+    list-style: none;
+}
+
+/* Hero Section */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start; /* Aligns both the left hero and right terminal flush at the top */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 50px;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.terminal{
+    width: auto;
+    max-width: 800px;
+    height: 400px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.terminal-header{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #333333;
+    list-style: none;
+    color: #fff;
+}
+
+/* Common styles for all three spans */
+.terminal-buttons span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Individual macOS colors */
+.terminal-buttons .close {
+  background-color: #ff5f56;
+  border: 1px solid #e0443e;
+}
+
+.terminal-buttons .minimize {
+  background-color: #ffbd2e;
+  border: 1px solid #dea123;
+}
+
+.terminal-buttons .maximize {
+  background-color: #27c93f;
+  border: 1px solid #1aab29;
+}
+
+.terminal-body{
+    padding: 20px;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-y: auto;
+    height: calc(100% - 40px); /* Adjust height to account for header */
+}
+
+.name {
+    color: #3d971e; /* Green color for the name */
+}
+
+.hero-content {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Small uppercase tag above the title */
+.hero-content .eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #86868b;
+  margin-bottom: 12px;
+}
+
+/* Main Heading */
+.hero-content .hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+/* Accent color on your name */
+.hero-content .name {
+  color: #147a17; /* Apple system blue */
+  /* Optional gradient text effect: */
+  /* background: linear-gradient(135deg, #2997ff 0%, #a259ff 100%); */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+
+/* Core Statement Subtitle */
+.hero-content .hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #86868b;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px 0;
+}
+
+/* Secondary Detail Paragraph */
+.hero-content .hero-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #a1a1a6;
+  margin: 0;
+}
+
+.hero-subtitle {
+      font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #86868b;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px 0;
+}
+
+/* 3. Contain the slider section */
+.programming-languages {
+    width: 100%;
+    max-width: 100%; 
+    overflow: hidden; /* Clips the slider at the exact edge of the left column */
+    margin-top: 20px;
+}
+
+/* 2. Ensure the slider wrapper respects the new boundaries */
+.logo-slider {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* Hides the cards as they slide off-screen */
+    position: relative;
+    
+    /* The Apple Fade Effect */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+/* 3. The moving track (keep this exactly as is) */
+.language-logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    /* Crucial: ONLY the track is wider than the screen, NOT the container */
+    width: max-content; 
+    
+    will-change: transform; 
+    animation: slide-left-to-right 25s linear infinite;
+}
+
+/* 2. Update your card CSS for better internal alignment */
+.card {
+    height: 25px; /* Slightly increased to fit text/images comfortably */
+    width: 100px; /* Adjusted to fit the full language name */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent to match the image background */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 5px 15px;
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left rather than pushing them to the edges */
+    align-items: center;
+    gap: 12px; /* Space between logo and text */
+}
+
+/* 3. Scale down the images to fit the new card size */
+.language-logos {
+    height: 10px;
+    width: 20px;
+    object-fit: contain;
+}
+
+/* 1. Ensure the list items stay in a single line and apply the animation */
+.language-logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: max-content; /* Allows the container to span as wide as the cards */
+    white-space: nowrap;
+    will-change: transform;
+    
+    /* 20s controls the scroll speed (lower = faster) */
+    animation: slide-left-to-right 20s linear infinite;
+}
+
+
+/* 3. Define the continuous left-to-right sliding animation */
+@keyframes slide-left-to-right {
+    0% {
+        /* Starts offset by half (showing the second duplicate set) */
+        transform: translate3d(-50%, 0, 0);
+    }
+    100% {
+        /* Moves back to the origin, creating a seamless loop */
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* 4. Ensure the text fits nicely */
+.card span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    white-space: nowrap; /* Prevents text from wrapping to a new line */
 }
