@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dren Veliu - Main</title>
     <link rel="stylesheet" href="../STYLE/index-public.css">
-    <link rel="icon" type="image/png" href="../ASSETS/IMAGES/logo-main.png"> 
+    <link rel="icon" type="image/png" href="../ASSETS/IMAGES/logo-main.png">
+    
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
 </head>
 <body>
 <header>
@@ -22,65 +27,225 @@
             </ul>
         </div>
         <div class="nav-actions">
-            <a href="../PUBLIC/login.html" class="login">Login</a>
+           <a href="https://github.com/drenveliu" target="_blank" rel="noopener noreferrer" <i class="fa-brands fa-github"></i></a>
             <span class="separator">|</span>
-            <button class="sign-up">Sign Up</button>
+            <i class="fa-solid fa-sliders"></i>
         </div>
     </nav>
 </header>
 
-<main class="main-content">
-    <!-- HERO COLUMN (LEFT) -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="eyebrow">Information</span>
-            <h1 class="hero-title">Hello, I'm <span class="name">Dren Veliu</span>.</h1>
-            <p class="hero-subtitle">I like creating new and exciting things on the web.</p>
-            <p class="hero-description">18 years old — curious, driven, and passionate about modern software and design.</p>
-        </div>
+ <main class="main-content">
 
-        <div class="programming-languages">
-            <p class="hero-subtitle">Programming Languages</p>
-            
-            <!-- Slider Wrapper -->
-            <div class="logo-slider">
-                <ul class="language-logos">
-                    <!-- First Set -->
-                    <li class="card"><img src="../ASSETS/IMAGES/python-logo.png" alt="Python" class="language-logo"><span>Python</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/js-logo.png" alt="JavaScript" class="language-logo"><span>JavaScript</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/php-logo.png" alt="PHP" class="language-logo"><span>PHP</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/java-logo.png" alt="Java" class="language-logo"><span>Java</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/css-logo.png" alt="CSS" class="language-logo"><span>CSS</span></li>
-                    
-                    <!-- Duplicate Set for Infinite Seamless Loop -->
-                    <li class="card"><img src="../ASSETS/IMAGES/python-logo.png" alt="Python" class="language-logo"><span>Python</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/js-logo.png" alt="JavaScript" class="language-logo"><span>JavaScript</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/php-logo.png" alt="PHP" class="language-logo"><span>PHP</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/java-logo.png" alt="Java" class="language-logo"><span>Java</span></li>
-                    <li class="card"><img src="../ASSETS/IMAGES/css-logo.png" alt="CSS" class="language-logo"><span>CSS</span></li>
-                </ul>
-            </div>
-        </div> <!-- FIXED: Added missing closure for .programming-languages -->
-    </section>
 
-    <!-- TERMINAL COLUMN (RIGHT) -->
-    <section class="terminal">
-        <div class="terminal-box">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span class="button close"></span>
-                    <span class="button minimize"></span>
-                    <span class="button maximize"></span>
+<!-- HERO COLUMN (LEFT) -->
+<section class="hero">
+
+    <div class="hero-content">
+        <span class="eyebrow">Information</span>
+
+        <h1 class="hero-title">
+            Hello, I'm <span class="name">Dren Veliu</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+            I like creating new and exciting things on the web.
+        </p>
+
+        <p class="hero-description">
+           I am currious about new things, the future and have fun in life.
+        </p>
+
+        <br />
+        <span class="eyebrow">Experience:</span><br />
+        <p class="hero-description">
+            I have a bit of experience with some Web Programming Languages
+            (HTML, CSS, JavaScript, PHP) and some other programming languages like Python and Java.
+        </p>
+    </div>
+    <br />
+
+    <!-- PROGRAMMING LANGUAGES -->
+    <section class="programming-languages">
+
+
+
+        <div class="language-marquee">
+            <div class="language-track">
+
+                <!-- First set -->
+                <div class="language-set">
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/python-logo.png" alt="Python">
+                        </div>
+                        <span>Python</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/js-logo.png" alt="JavaScript">
+                        </div>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/php-logo.png" alt="PHP">
+                        </div>
+                        <span>PHP</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/java-logo.png" alt="Java">
+                        </div>
+                        <span>Java</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/css-logo.png" alt="CSS">
+                        </div>
+                        <span>CSS</span>
+                    </div>
+
                 </div>
-            </div>
-            <div class="terminal-body">
-                <p class="terminal-line">Welcome to my personal website!</p>
-                <p class="terminal-line">Feel free to explore and learn more about me.</p>
-                <p class="terminal-line">You can find my projects, contact information, and more.</p>
+
+                <!-- Duplicate set for seamless animation -->
+                <div class="language-set" aria-hidden="true">
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/python-logo.png" alt="">
+                        </div>
+                        <span>Python</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/js-logo.png" alt="">
+                        </div>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/php-logo.png" alt="">
+                        </div>
+                        <span>PHP</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/java-logo.png" alt="">
+                        </div>
+                        <span>Java</span>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-orb">
+                            <img src="../ASSETS/IMAGES/css-logo.png" alt="">
+                        </div>
+                        <span>CSS</span>
+                    </div>
+
+                </div>
+
             </div>
         </div>
+
     </section>
+
+</section>
+<!-- END HERO COLUMN -->
+
+
+<section class="terminal">
+    <div class="terminal-box">
+
+        <!-- Window header -->
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="button close"></span>
+                <span class="button minimize"></span>
+                <span class="button maximize"></span>
+            </div>
+
+            <span class="terminal-window-title">Terminal</span>
+            <span class="terminal-status">
+                <span class="status-dot"></span>
+                 <div class="date"><h1 id="date"></h1></div>
+            </span>
+        </div>
+
+        <!-- Terminal content -->
+        <div class="terminal-body">
+
+            <div class="terminal-welcome">
+            </div>
+
+            <div class="terminal-divider"></div>
+
+            <div id="terminalOutput"
+                 class="terminal-output"
+                 aria-live="polite"
+                 aria-label="Terminal output">
+
+                <div class="output-line muted">
+                    Write or click the commands below to get some more 
+                </div>
+                <div class="output-line muted">
+                    information about me and my skills.
+                </div>
+                <div class="output-line">
+                    Type <span class="terminal-accent">help</span>
+                    to see available commands.
+                </div>
+
+            </div>
+
+            <!-- Suggested commands -->
+            <div class="terminal-shortcuts">
+                <button type="button" data-command="about">about</button>
+                <button type="button" data-command="skills">skills</button>
+                <button type="button" data-command="languages">languages</button>
+                <button type="button" data-command="contact">contact</button>
+            </div>
+
+            <!-- Interactive command line -->
+            <form id="terminalForm" class="terminal-input-line"
+                  autocomplete="off">
+                <label for="terminalInput" class="terminal-prompt">
+                    <span class="prompt-symbol"> ~ $</span>
+                </label>
+
+                <input
+                    id="terminalInput"
+                    type="text"
+                    placeholder="Type a command..."
+                    spellcheck="false"
+                    autocapitalize="off"
+                    autocomplete="off"
+                    aria-label="Enter a terminal command"
+                >
+
+                <span class="terminal-cursor"></span>
+            </form>
+
+            <div class="terminal-footer">
+                <span><span class="footer-indicator"></span> All systems curious</span>
+                <span>Try <kbd>↑</kbd> <kbd>↓</kbd> for history</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
 </main>
+
 
 
 <script src="../FUNCTIONALITY/main.js"></script>

@@ -44,14 +44,16 @@ body{
     gap: 10px;
 }
 
-.login {
-    padding: 7px 14px;
-    border: 1px solid #d0d7de;
-    border-radius: 5px;
-    background-color: #3d971e;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
+.fa-github {
+    font-size: 22px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.fa-sliders {
+    font-size: 22px;
+    color: inherit;
+    text-decoration: none;
 }
 
 .sign-up {
@@ -82,59 +84,402 @@ body{
     margin-top: 50px;
 }
 
-.terminal{
-    width: auto;
-    max-width: 800px;
-    height: 400px;
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+
+/* =========================================
+   INTERACTIVE DEVELOPER TERMINAL
+   ========================================= */
+
+.terminal {
+    width: 100%;
+    min-width: 0;
+    align-self: center;
+    justify-self: end;
 }
 
-.terminal-header{
+.terminal-box {
+    --term-bg: #121314; 
+    --term-panel: #151a25;
+    --term-border: rgba(255, 255, 255, 0.085);
+    --term-text: #e1e6ef;
+    --term-muted: #858fa3;
+    --term-accent: #ff6a06;
+    --term-green: #7dd9a6;
+
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--term-border);
+    border-radius: 15px;
+    background: var(--term-bg);
+    color: var(--term-text);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    box-shadow:
+        0 24px 70px rgba(24, 32, 50, 0.12),
+        0 3px 10px rgba(24, 32, 50, 0.05);
+
+    transition:
+        box-shadow 300ms ease,
+        border-color 300ms ease;
+}
+
+.terminal-box:hover {
+    border-color: rgba(146, 180, 255, 0.2);
+    box-shadow:
+        0 28px 80px rgba(24, 32, 50, 0.16),
+        0 3px 10px rgba(24, 32, 50, 0.05);
+}
+
+/* Window chrome */
+
+.terminal-header {
+    position: relative;
+    min-height: 43px;
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: #333333;
-    list-style: none;
-    color: #fff;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 15px;
+
+    background: #202122;
+    border-bottom: 1px solid var(--term-border);
 }
 
-/* Common styles for all three spans */
-.terminal-buttons span {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
+.terminal-buttons {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
 }
 
-/* Individual macOS colors */
+.terminal-buttons .button {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
 .terminal-buttons .close {
-  background-color: #ff5f56;
-  border: 1px solid #e0443e;
+    background: #ff6058;
 }
 
 .terminal-buttons .minimize {
-  background-color: #ffbd2e;
-  border: 1px solid #dea123;
+    background: #ffbd2e;
 }
 
 .terminal-buttons .maximize {
-  background-color: #27c93f;
-  border: 1px solid #1aab29;
+    background: #28c840;
 }
 
-.terminal-body{
-    padding: 20px;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    line-height: 1.5;
-    overflow-y: auto;
-    height: calc(100% - 40px); /* Adjust height to account for header */
+.terminal-window-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #8d96a8;
+    font: 11px/1.4 system-ui, sans-serif;
+    white-space: nowrap;
 }
+
+.terminal-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #a1adbd;
+    font: 10px/1.4 system-ui, sans-serif;
+    flex-shrink: 0;
+}
+
+.status-dot,
+.footer-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--term-green);
+    box-shadow: 0 0 9px rgba(125, 217, 166, 0.35);
+}
+
+/* Main body */
+
+.terminal-body {
+    padding: 23px 22px 15px;
+}
+
+.terminal-welcome {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+}
+
+
+
+
+.terminal-accent {
+    color: var(--term-accent);
+}
+
+.terminal-welcome-subtitle {
+    margin-top: 3px;
+    color: var(--term-muted);
+    font: 11px/1.5 system-ui, sans-serif;
+}
+
+
+
+/* Output */
+
+.terminal-output {
+    min-height: 110px;
+    max-height: 235px;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+    scrollbar-width: thin;
+    scrollbar-color: #3e485d transparent;
+
+    font-size: 12px;
+    line-height: 1.85;
+}
+
+.output-line {
+    color: var(--term-text);
+    white-space: pre-wrap;
+}
+
+.output-line.muted {
+    color: var(--term-muted);
+}
+
+.output-line.command-echo {
+    margin-top: 9px;
+    color: #c2cce0;
+}
+
+.output-line.command-echo::before {
+    content: "› ";
+    color: var(--term-green);
+}
+
+.output-line.output-heading {
+    margin-top: 9px;
+    color: var(--term-accent);
+    font-weight: 600;
+}
+
+.output-line.output-success {
+    color: var(--term-green);
+}
+
+.output-line.output-error {
+    color: #ff8c91;
+}
+
+.output-line.output-gap {
+    height: 7px;
+}
+
+/* Output links */
+
+.terminal-output a {
+    color: var(--term-accent);
+    text-decoration: none;
+}
+
+.terminal-output a:hover {
+    text-decoration: underline;
+}
+
+/* Command suggestions */
+
+.terminal-shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 17px;
+    margin-bottom: 18px;
+}
+
+.terminal-shortcuts button {
+    padding: 6px 9px;
+    border: 1px solid var(--term-border);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.075);
+
+    color: #aab6cb;
+    font: 10px/1.3 inherit;
+    font-family: inherit;
+
+    cursor: pointer;
+    transition:
+        color 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+}
+
+.terminal-shortcuts button:hover {
+    color: #46b337ce;
+    border-color: rgba(146, 181, 255, 0.765);
+    background: rgba(20, 20, 20, 0.86);
+}
+
+/* Interactive input */
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 7px;
+    min-width: 0;
+
+    padding: 11px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.15);
+
+    transition: border-color 200ms ease;
+}
+
+.terminal-input-line:focus-within {
+    border-color: rgba(146, 180, 255, 0.4);
+}
+
+.terminal-prompt {
+    flex-shrink: 0;
+    color: var(--term-muted);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.prompt-user {
+    color: var(--term-green);
+}
+
+.prompt-symbol {
+    color: #8d9bb3;
+}
+
+.prompt-path {
+    color: var(--term-accent);
+}
+
+#terminalInput {
+    min-width: 0;
+    width: 100%;
+    flex: 1;
+
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+
+    color: #f2f5fc;
+    font: inherit;
+    font-size: 11px;
+    caret-color: var(--term-accent);
+}
+
+#terminalInput::placeholder {
+    color: #626e82;
+}
+
+.terminal-cursor {
+    width: 6px;
+    height: 14px;
+    flex-shrink: 0;
+    background: var(--term-accent);
+    opacity: 0.8;
+    animation: terminal-blink 1.1s steps(2, start) infinite;
+}
+
+.terminal-input-line:focus-within .terminal-cursor {
+    display: none;
+}
+
+@keyframes terminal-blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+/* Footer */
+
+.terminal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 14px;
+    color: #778297;
+    font: 10px/1.5 system-ui, sans-serif;
+}
+
+.terminal-footer > span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.terminal-footer kbd {
+    padding: 2px 4px;
+    border: 1px solid var(--term-border);
+    border-radius: 3px;
+    color: #aab5c7;
+    font: inherit;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+    .terminal {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-body {
+        padding: 18px 14px 13px;
+    }
+
+    .terminal-welcome-title {
+        font-size: 15px;
+    }
+
+    .terminal-output {
+        font-size: 11px;
+    }
+
+    .terminal-prompt {
+        font-size: 10px;
+    }
+
+    .terminal-input-line {
+        gap: 5px;
+        padding: 10px 7px;
+    }
+
+    .terminal-footer {
+        font-size: 9px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .terminal-cursor {
+        animation: none;
+    }
+
+    .terminal-box,
+    .terminal-shortcuts button {
+        transition: none;
+    }
+}
+
 
 .name {
     color: #3d971e; /* Green color for the name */
@@ -154,7 +499,7 @@ body{
 }
 
 /* Small uppercase tag above the title */
-.hero-content .eyebrow {
+ .eyebrow {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -193,7 +538,7 @@ body{
 }
 
 /* Secondary Detail Paragraph */
-.hero-content .hero-description {
+.hero-description {
   font-size: 1rem;
   line-height: 1.5;
   color: #a1a1a6;
@@ -201,7 +546,7 @@ body{
 }
 
 .hero-subtitle {
-      font-size: 1.4rem;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.35;
   color: #86868b;
@@ -209,98 +554,259 @@ body{
   margin: 0 0 16px 0;
 }
 
-/* 3. Contain the slider section */
+
+/* ===== LANGUAGE SHOWCASE ===== */
+
 .programming-languages {
     width: 100%;
-    max-width: 100%; 
-    overflow: hidden; /* Clips the slider at the exact edge of the left column */
-    margin-top: 20px;
+    max-width: 100%;
+    margin-top: 28px;
+    overflow: hidden;
 }
 
-/* 2. Ensure the slider wrapper respects the new boundaries */
-.logo-slider {
+.programming-languages .hero-subtitle {
+    margin-bottom: 24px;
+}
+
+/* Fade only at the edges */
+.language-marquee {
     width: 100%;
     max-width: 100%;
-    overflow: hidden; /* Hides the cards as they slide off-screen */
-    position: relative;
-    
-    /* The Apple Fade Effect */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 12px 0 18px;
+    margin-left: 20px;
+
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 7%,
+        #000 80%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 7%,
+        #000 60%,
+        transparent
+    );
 }
 
-/* 3. The moving track (keep this exactly as is) */
-.language-logos {
+/* Seamless, constant-speed motion */
+.language-track {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    
-    /* Crucial: ONLY the track is wider than the screen, NOT the container */
-    width: max-content; 
-    
-    will-change: transform; 
-    animation: slide-left-to-right 25s linear infinite;
-}
-
-/* 2. Update your card CSS for better internal alignment */
-.card {
-    height: 25px; /* Slightly increased to fit text/images comfortably */
-    width: 100px; /* Adjusted to fit the full language name */
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent to match the image background */
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    padding: 5px 15px;
-    display: flex;
-    justify-content: flex-start; /* Aligns items to the left rather than pushing them to the edges */
-    align-items: center;
-    gap: 12px; /* Space between logo and text */
-}
-
-/* 3. Scale down the images to fit the new card size */
-.language-logos {
-    height: 10px;
-    width: 20px;
-    object-fit: contain;
-}
-
-/* 1. Ensure the list items stay in a single line and apply the animation */
-.language-logos {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: max-content; /* Allows the container to span as wide as the cards */
-    white-space: nowrap;
+    width: max-content;
     will-change: transform;
-    
-    /* 20s controls the scroll speed (lower = faster) */
-    animation: slide-left-to-right 20s linear infinite;
+
+    animation: language-flow 26s linear infinite;
 }
 
+.language-set {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 0 0 auto;
+    gap: clamp(26px, 4vw, 56px);
+    padding: 0 clamp(16px, 2vw, 28px);
+}
 
-/* 3. Define the continuous left-to-right sliding animation */
-@keyframes slide-left-to-right {
-    0% {
-        /* Starts offset by half (showing the second duplicate set) */
+/* No cards: just the logo and its name */
+.language-item {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+
+    min-width: 76px;
+    color: #697386;
+
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+
+    animation: logo-bob 4.8s ease-in-out infinite;
+}
+.language-item:nth-child(2) {
+    animation-delay: -4s;
+}
+
+.language-item:nth-child(3) {
+    animation-delay: -2s;
+}
+
+.language-item:nth-child(4) {
+    animation-delay: -4s;
+}
+
+.language-item:nth-child(5) {
+    animation-delay: -2s;
+}
+/* Lightweight circular icon */
+.language-orb {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.76);
+
+    box-shadow:
+        0 5px 18px rgba(35, 48, 75, 0.055),
+        inset 0 1px 2px rgba(255, 255, 255, 0.95);
+
+    transition:
+        transform 350ms cubic-bezier(.2, .75, .25, 1),
+        box-shadow 350ms ease,
+        background 350ms ease;
+}
+
+/* Actual language logos */
+.language-orb img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+
+    transition: transform 350ms cubic-bezier(.2, .75, .25, 1);
+}
+
+/* Refined hover, not an oversized card effect */
+.language-item:hover .language-orb {
+    transform: translateY(-5px) scale(1.06);
+    background: #fff;
+
+    box-shadow:
+        0 12px 26px rgba(35, 48, 75, 0.10),
+        0 0 0 4px rgba(125, 151, 210, 0.055);
+}
+
+.language-item:hover .language-orb img {
+    transform: scale(1.08);
+}
+
+.language-item:hover {
+    color: #30394b;
+}
+
+/*
+  The duplicate sets have identical widths.
+  Moving from -50% to 0 makes the logos travel
+  visually from left to right without a jump.
+*/
+@keyframes language-flow {
+    from {
         transform: translate3d(-50%, 0, 0);
     }
-    100% {
-        /* Moves back to the origin, creating a seamless loop */
+
+    to {
         transform: translate3d(0, 0, 0);
     }
 }
 
-/* 4. Ensure the text fits nicely */
-.card span {
-    font-size: 14px;
-    font-weight: 500;
-    color: #555;
-    white-space: nowrap; /* Prevents text from wrapping to a new line */
+/* Subtle, independent floating motion */
+@keyframes logo-bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Pause the marquee while exploring the logos */
+.language-marquee:hover .language-track {
+    animation-play-state: paused;
+}
+
+/* Responsive sizing */
+@media (max-width: 600px) {
+    .language-set {
+        gap: 24px;
+    }
+
+    .language-orb {
+        width: 50px;
+        height: 50px;
+    }
+
+    .language-orb img {
+        width: 27px;
+        height: 27px;
+    }
+
+    .language-item {
+        min-width: 66px;
+        font-size: 11px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .language-track,
+    .language-item {
+        animation: none !important;
+    }
+
+    .language-track {
+        transform: none;
+    }
+
+    .language-set[aria-hidden="true"] {
+        display: none;
+    }
+
+    .language-marquee {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .language-set {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+
+#date {
+    color: #9c9c9c;
+    font-size: 0.7rem;
+}
+
+.output-green {
+    color: #00ff00;
+}
+
+
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero,
+    .terminal {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .terminal-box {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
 }
